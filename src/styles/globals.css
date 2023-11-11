@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 0 10px #0006;
+  }
+}
