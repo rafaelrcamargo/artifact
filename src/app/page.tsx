@@ -1,25 +1,35 @@
-import { Globe } from "@/components/globe";
-import { Heading } from "@/components/heading";
+import { ThemedGlobe } from "@/components/globe"
+import { Heading } from "@/components/heading"
 
 const Page = () => (
-  <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <section className="w-full relative justify-center h-[240vh]">
-      <Heading className="sticky max-w-5xl m-auto text-center z-10 text-6xl font-semibold top-1/2 -translate-y-1/2">
+  <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24">
+    <div className="dashed-grid absolute inset-0 -z-10 h-[240vh] w-full" />
+    <section className="relative h-[240vh] w-full justify-center">
+      <Heading className="sticky top-[60vh] z-10 m-auto max-w-5xl text-center text-3xl font-semibold md:top-1/2 md:-translate-y-1/2 md:text-6xl">
         Re-discover software as a service. Build a future proof app.
       </Heading>
-      <Globe
-        className="sticky top-[calc(50vh-300px)]"
+
+      <ThemedGlobe
+        className="sticky top-1/2 -translate-y-1/2"
+        colors={{ dark: [254, 123, 31], light: [46, 242, 128] }}
         options={{
           markers: [
-            { location: [-27.5935, -48.5585], size: 0.25 },
-            { location: [40.7128, -74.006], size: 0.125 }
-          ]
+            { location: [35.685, 139.7514], size: 0.35676 },
+            { location: [40.6943, -73.9249], size: 0.19354922 },
+            { location: [19.4424, -99.131], size: 0.19028 },
+            { location: [19.017, 72.857], size: 0.18978 },
+            { location: [-23.5587, -46.625], size: 0.18845 },
+            { location: [28.67, 77.23], size: 0.15926 },
+            { location: [31.2165, 121.4365], size: 0.14987 },
+            { location: [22.495, 88.3247], size: 0.14787 },
+            { location: [34.1139, -118.4068], size: 0.12815475 },
+          ],
         }}
       />
-      <div className="absolute pointer-events-none w-full h-[180vh] to-70% bg-gradient-to-b from-transparent to-black backdrop-blur-xl [-webkit-mask:linear-gradient(180deg,transparent,black_50%)] bottom-0" />
-      <div className="absolute pointer-events-none w-full h-[80vh] to-70% bg-gradient-to-b from-transparent to-black backdrop-blur-md [-webkit-mask:linear-gradient(180deg,transparent,black_50%)] bottom-0 z-20" />
+
+      <div className="pointer-events-none absolute -left-8 top-[60vh] z-20 h-[180vh] w-screen bg-gradient-to-b from-transparent to-background to-70% backdrop-blur-xl [-webkit-mask:linear-gradient(180deg,transparent,black_50%)] md:-left-24" />
     </section>
-    <section className="-mt-96 z-30">
+    <section className="z-30 -mt-96">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aut
         saepe doloribus eveniet assumenda debitis sunt numquam dolores iusto
@@ -242,6 +252,6 @@ const Page = () => (
       </p>
     </section>
   </main>
-);
+)
 
-export default Page;
+export default Page
