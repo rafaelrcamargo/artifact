@@ -2,10 +2,12 @@
   "name": "artifact",
   "version": "0.1.0",
   "private": true,
+  "author": "Rafael R. Camargo (https://github.com/rafaelrcamargo)",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "format": "prettier --ignore-unknown --write .",
+    "postinstall": "simple-git-hooks",
     "lint": "next lint",
     "start": "next start"
   },
@@ -21,7 +23,8 @@
       "prettier-plugin-tailwindcss"
     ],
     "semi": false,
-    "singleQuote": false
+    "singleQuote": false,
+    "trailingComma": "none"
   },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.1.4",

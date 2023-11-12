@@ -17,8 +17,8 @@ const Providers: FC<PropsWithChildren> = ({ children }) => {
         closeButton
         toastOptions={{
           style: {
-            background: theme === "dark" ? "#333" : "#fff",
-          },
+            background: theme === "dark" ? "#333" : "#fff"
+          }
         }}
         theme={theme as Theme}
         duration={3000}

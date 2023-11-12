@@ -20,7 +20,7 @@ export const Globe: FC<Props> = ({
   color = [255, 255, 255],
   size = 600,
   className,
-  options,
+  options
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -35,8 +35,8 @@ export const Globe: FC<Props> = ({
       mass: 1,
       tension: 280,
       friction: 40,
-      precision: 0.001,
-    },
+      precision: 0.001
+    }
   }))
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export const Globe: FC<Props> = ({
       },
 
       // Override any of the above
-      ...options,
+      ...options
     })
 
     // Fade in
@@ -159,7 +159,7 @@ export const ThemedGlobe: FC<
 
   const options = {
     dark: resolvedTheme === "dark" ? 1.1 : 0,
-    ...props.options,
+    ...props.options
   }
 
   return (
