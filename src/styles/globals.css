@@ -134,7 +134,7 @@
     hsl(var(--background))
   );
 
-  -webkit-mask: radial-gradient(circle, transparent, hsl(var(--background )));
+  -webkit-mask: radial-gradient(circle, transparent, hsl(var(--background)));
 
   backdrop-filter: blur(4px);
 }

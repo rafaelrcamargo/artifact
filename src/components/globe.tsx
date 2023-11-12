@@ -27,6 +27,8 @@ export const Globe: FC<Props> = ({
   const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef<number>(0)
 
+  const { scrollYProgress } = useScroll()
+
   const [{ r }, api] = useSpring(() => ({
     r: 0,
     config: {
@@ -36,8 +38,6 @@ export const Globe: FC<Props> = ({
       precision: 0.001,
     },
   }))
-
-  const { scrollYProgress } = useScroll()
 
   useEffect(() => {
     let phi = 0
@@ -110,10 +110,7 @@ export const Globe: FC<Props> = ({
     <div className={className}>
       <div
         className={"relative m-auto aspect-square w-full"}
-        style={{
-          maxWidth: size,
-          maxHeight: size,
-        }}
+        style={{ maxWidth: size, maxHeight: size }}
       >
         <canvas
           ref={canvasRef}
