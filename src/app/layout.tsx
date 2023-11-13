@@ -13,11 +13,15 @@ import "../styles/globals.css"
 const Layout: FC<PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body
-      className={cn("min-h-screen font-sans antialiased", GeistSans.variable)}
+      className={cn(
+        "min-h-screen overflow-x-hidden font-sans antialiased",
+        GeistSans.variable
+      )}
     >
       <Providers>
         <Header />
         <Lenis>{children}</Lenis>
+        <div className="overlay pointer-events-none z-40" />
       </Providers>
     </body>
   </html>

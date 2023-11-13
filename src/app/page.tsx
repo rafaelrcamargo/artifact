@@ -1,36 +1,28 @@
-import { ThemedGlobe } from "@/components/globe"
-import { Heading } from "@/components/heading"
+import { Hero } from "@/components/hero"
+import { Horz } from "@/components/horz"
+import Image from "next/image"
 
 const Page = () => (
   <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24">
     <div className="dashed-grid absolute inset-0 -z-10 h-[240vh] w-full" />
-    <section className="relative h-[240vh] w-full justify-center">
-      <Heading className="sticky top-[60vh] z-10 m-auto max-w-5xl text-center text-3xl font-semibold md:top-1/2 md:-translate-y-1/2 md:text-6xl">
-        Re-discover software as a service. Build a future proof app.
-      </Heading>
 
-      <ThemedGlobe
-        className="sticky top-1/2 -translate-y-1/2"
-        colors={{ dark: [254, 123, 31], light: [46, 242, 128] }}
-        options={{
-          markers: [
-            { location: [35.685, 139.7514], size: 0.35676 },
-            { location: [40.6943, -73.9249], size: 0.19354922 },
-            { location: [19.4424, -99.131], size: 0.19028 },
-            { location: [19.017, 72.857], size: 0.18978 },
-            { location: [-23.5587, -46.625], size: 0.18845 },
-            { location: [28.67, 77.23], size: 0.15926 },
-            { location: [31.2165, 121.4365], size: 0.14987 },
-            { location: [22.495, 88.3247], size: 0.14787 },
-            { location: [34.1139, -118.4068], size: 0.12815475 }
-          ]
-        }}
+    <div className="absolute inset-0 h-screen w-screen">
+      <Image
+        fill
+        priority
+        sizes="100vw"
+        src="/hero.webp"
+        alt="Hero background"
+        className="fade-in-hero pointer-events-none absolute z-40 -mt-16 invert dark:invert-0"
       />
+    </div>
 
-      <div className="pointer-events-none absolute -left-8 top-[60vh] z-20 h-[180vh] w-screen bg-gradient-to-b from-transparent to-background to-70% backdrop-blur-xl [-webkit-mask:linear-gradient(180deg,transparent,black_50%)] md:-left-24" />
-    </section>
+    <Hero />
+
     <section className="z-30 -mt-96">
-      <p>
+      <Horz />
+
+      <p className="relative z-10 -mt-96">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aut
         saepe doloribus eveniet assumenda debitis sunt numquam dolores iusto
         quos voluptatum, natus beatae cum, a perspiciatis voluptate sit

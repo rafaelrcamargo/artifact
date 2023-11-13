@@ -14,7 +14,7 @@ export const Heading: FC<PropsWithChildren<{ className?: string }>> = ({
   >
     <h1
       className={cn(
-        "pointer-events-none bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text text-transparent"
+        "pointer-events-none flex flex-wrap justify-center gap-x-2 bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text text-transparent"
       )}
     >
       {children}
