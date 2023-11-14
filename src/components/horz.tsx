@@ -14,7 +14,7 @@ export const Horz = () => {
 
   return (
     <section ref={targetRef} className="relative h-[400vh] bg-background">
-      <div className="sticky top-0 flex h-screen items-center">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="absolute left-0 flex gap-8">
           {cards.map(card => {
             return <Card card={card} key={card.id} />
