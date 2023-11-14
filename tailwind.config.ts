@@ -49,7 +49,8 @@ const config = {
         }
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans]
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        serif: ["var(--font-serif)", ...fontFamily.serif]
       },
       borderRadius: {
         lg: "var(--radius)",

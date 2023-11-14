@@ -38,34 +38,34 @@ export const Hero = () => {
 export default Hero
 
 const Title = () => {
+  const [theme, setTheme] = useState("dark")
+
   const { scrollYProgress } = useScroll()
   const { resolvedTheme } = useTheme()
-
-  const [theme, setTheme] = useState("dark")
 
   useEffect(() => {
     setTheme(resolvedTheme!)
   }, [resolvedTheme])
 
   return (
-    <h1 className="m-auto flex max-w-5xl flex-wrap justify-center gap-x-2 text-center text-3xl font-semibold [text-shadow:0_0_8px_hsl(var(--background)_/_60%)] md:text-6xl">
+    <h1 className="m-auto flex max-w-5xl flex-wrap justify-center gap-x-2 text-center text-3xl font-semibold [text-shadow:2px_2px_4px_hsl(var(--foreground)_/_30%)] dark:[text-shadow:0_0_8px_hsl(var(--background)_/_60%)] md:gap-x-4 md:text-6xl">
       {"Re-discover software as a service. Build a future proof app."
         .split(" ")
         .map((word, i) => (
           <animated.span
             key={word + i}
-            className="leading-[3.75rem] tracking-tight"
+            className="leading-8 tracking-tighter duration-100 ease-linear md:leading-[3.75rem]"
             style={{
               color:
                 theme === "dark"
-                  ? `hsl(20,30%,${100 - (i + 1) * 1.5}%)`
-                  : `hsl(80,30%,${(i + 1) * 2}%)`,
+                  ? `hsl(20,40%,${100 - (i + 1) * 1.5}%)`
+                  : `hsl(80,10%,${(i + 1) * 2}%)`,
               transform: scrollYProgress.to(val => {
                 if (val > 0.05) {
                   val -= 0.05
 
                   return `translate3d(0,-${
-                    val * 10 * (10 - i) * (i + 1) * 6
+                    val * 14 * (word.length * 20) + (i + 1) * 10
                   }px,0)`
                 }
 

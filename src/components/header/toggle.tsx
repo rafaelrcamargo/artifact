@@ -23,18 +23,18 @@ export const Toggle = () => {
   return (
     <>
       <Select value={theme} onValueChange={e => setTheme(e)}>
-        <SelectTrigger className="flex h-10 w-10 items-center justify-center rounded-full border-foreground/10 bg-transparent">
+        <SelectTrigger className="flex h-[2.25rem] w-[2.25rem] items-center justify-center rounded-full border-foreground/10 bg-transparent">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="light">
-            <Sun className="w-5 fill-muted-foreground/20 stroke-muted-foreground" />
+            <Sun className="w-4 fill-muted-foreground/20 stroke-muted-foreground" />
           </SelectItem>
           <SelectItem value="dark">
-            <Moon className="w-5 fill-muted-foreground/20 stroke-muted-foreground" />
+            <Moon className="w-4 fill-muted-foreground/20 stroke-muted-foreground" />
           </SelectItem>
           <SelectItem value="system">
-            <Laptop className="w-5 fill-muted-foreground/20 stroke-muted-foreground" />
+            <Laptop className="w-4 fill-muted-foreground/20 stroke-muted-foreground" />
           </SelectItem>
         </SelectContent>
       </Select>

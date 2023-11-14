@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+p {
+  @apply font-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -148,6 +152,7 @@
 
 .overlay {
   background-image: url(/noise.png);
+  user-select: none;
 
   width: 120%;
 
@@ -178,15 +183,15 @@
 }
 
 .fade-in-hero {
-  opacity: 0;
+  opacity: 0; /* Start invisible */
   animation: fadeIn 1s ease-in forwards 1s;
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 0.5;
   }
 }
