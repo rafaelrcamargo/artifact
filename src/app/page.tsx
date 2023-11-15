@@ -1,19 +1,20 @@
+import Image from "next/image"
+
 import { Hero } from "@/components/hero"
 import { Horz } from "@/components/horz"
-import Image from "next/image"
 
 const Page = () => (
   <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24">
     <div className="dashed-grid absolute inset-0 -z-10 h-[240vh] w-full" />
 
-    <div className="absolute inset-0 h-screen w-screen">
+    <div className="pointer-events-none absolute inset-0 h-screen w-screen select-none">
       <Image
         fill
         priority
         sizes="100vw"
         src="/hero.webp"
         alt="Hero background"
-        className="fade-in-hero pointer-events-none absolute z-40 -mt-16 invert dark:invert-0"
+        className="fade-in-hero z-40 -mt-16 invert dark:invert-0"
       />
     </div>
 

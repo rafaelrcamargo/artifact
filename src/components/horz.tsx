@@ -1,7 +1,9 @@
 "use client"
 
-import { motion, useTransform, useScroll } from "framer-motion"
 import { useRef } from "react"
+import { LazyMotion, domAnimation } from "framer-motion"
+import { m, useTransform, useScroll } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 export const Horz = () => {
   const targetRef = useRef(null)
@@ -13,35 +15,48 @@ export const Horz = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-110%"])
 
   return (
-    <section ref={targetRef} className="relative h-[400vh] bg-background">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="absolute left-0 flex gap-8">
-          {cards.map(card => {
-            return <Card card={card} key={card.id} />
-          })}
-        </motion.div>
-      </div>
-    </section>
+    <LazyMotion strict features={domAnimation}>
+      <section
+        ref={targetRef}
+        className="relative h-[400vh] w-screen bg-background"
+      >
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+          <m.div style={{ x }} className="absolute left-0 flex gap-8">
+            {cards.map(card => {
+              return (
+                <Card
+                  card={card}
+                  size={Math.floor(Math.random() * 500) + 400}
+                  key={card.id}
+                />
+              )
+            })}
+          </m.div>
+        </div>
+      </section>
+    </LazyMotion>
   )
 }
 
 type CardProps = {
+  size: number
   card: {
     title: string
     id: number
   }
 }
 
-const Card = ({ card }: CardProps) => {
+const Card = ({ card, size }: CardProps) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden bg-muted-foreground"
+      className="group relative h-[450px] overflow-hidden rounded-xl border border-muted bg-background/50 shadow-[0_-20px_80px_-20px_#ffffff1f_inset] backdrop-blur-sm"
+      style={{ width: size }}
     >
-      <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className="p-8 text-6xl font-black uppercase text-foreground">
-          {card.title}
-        </p>
+      <div className="absolute inset-0 z-10 flex flex-col justify-end gap-2 p-14">
+        <h2 className="text-4xl font-black text-foreground">{card.title}</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div>Read more →</div>
       </div>
     </div>
   )

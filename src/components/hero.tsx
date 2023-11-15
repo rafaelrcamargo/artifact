@@ -1,14 +1,16 @@
 "use client"
 
-import { useScroll, animated } from "@react-spring/web"
-import { ThemedGlobe } from "@/components/globe"
-import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+
+import { useScroll, animated } from "react-spring"
+import { useTheme } from "next-themes"
+
+import { ThemedGlobe } from "@/components/globe"
 
 export const Hero = () => {
   return (
     <section className="relative h-[240vh] w-full justify-center">
-      <div className="sticky top-1/2 z-10 -translate-y-1/2">
+      <div className="pointer-events-none sticky top-1/2 z-10 -translate-y-1/2">
         <Title />
       </div>
 
