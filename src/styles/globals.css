@@ -54,7 +54,7 @@
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
 
-    --accent: 0 0% 14.9%;
+    --accent: 25 99% 56%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -73,9 +73,9 @@
   body {
     @apply bg-background text-foreground;
   }
-  svg {
+  /* svg {
     @apply fill-foreground;
-  }
+  } */
   p {
     @apply font-serif;
   }
@@ -164,7 +164,7 @@
   opacity: 0.15;
 
   background-position: 0 0;
-  animation: noise 2s steps(15) infinite;
+  animation: noise 2s steps(10) infinite;
 }
 
 .light .overlay {

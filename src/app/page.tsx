@@ -2,6 +2,7 @@ import Image from "next/image"
 
 import { Hero } from "@/components/hero"
 import { Horz } from "@/components/horz"
+import { Light } from "@/components/light"
 
 const Page = () => (
   <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24">
@@ -20,10 +21,10 @@ const Page = () => (
 
     <Hero />
 
-    <section className="z-30 -mt-96">
+    <section className="relative z-30 -mt-96">
       <Horz />
 
-      <p className="relative z-10 -mt-96">
+      <p className="relative z-10 m-auto -mt-96 max-w-6xl px-8">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aut
         saepe doloribus eveniet assumenda debitis sunt numquam dolores iusto
         quos voluptatum, natus beatae cum, a perspiciatis voluptate sit
