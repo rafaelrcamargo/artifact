@@ -164,7 +164,7 @@
   opacity: 0.15;
 
   background-position: 0 0;
-  animation: noise 2s steps(10) infinite;
+  /* animation: noise 2s steps(10) infinite; */
 }
 
 .light .overlay {

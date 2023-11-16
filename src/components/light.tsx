@@ -1,8 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
-import { useScroll } from "react-spring"
-import { animated } from "react-spring"
+import { useScroll, animated } from "react-spring"
 
 export const Light = ({ container }: any) => {
   const { scrollYProgress } = useScroll({ container: container.current })
@@ -18,10 +16,7 @@ export const Light = ({ container }: any) => {
         filter: scrollYProgress.to(ranges, [g[1], g[1], g[0], g[0], g[1]]),
         transform: scrollYProgress.to(ranges, [s[0], s[0], s[1], s[1], s[2]]),
         opacity: scrollYProgress.to([0.0, 0.3, 0.65, 1], [0, 1, 1, 0]),
-        top: scrollYProgress.to(
-          [0.0, 0.2, 0.3, 0.65, 0.8],
-          [-25, -25, -25, -25, -500]
-        )
+        top: scrollYProgress.to([0.0, 0.65, 0.8], [-25, -25, -500])
       }}
     >
       <div className="h-96 w-1/2 bg-[conic-gradient(from_90deg_at_80%_50%,hsl(var(--accent)),hsl(var(--background)))]" />

@@ -14,6 +14,7 @@ const Page = () => (
         priority
         sizes="100vw"
         src="/hero.webp"
+        aria-hidden="true"
         alt="Hero background"
         className="fade-in-hero z-40 -mt-16 invert dark:invert-0"
       />

@@ -23,7 +23,10 @@ export const Toggle = () => {
   return (
     <>
       <Select value={theme} onValueChange={e => setTheme(e)}>
-        <SelectTrigger className="flex h-[2.25rem] w-[2.25rem] items-center justify-center rounded-full border-foreground/10 bg-transparent">
+        <SelectTrigger
+          aria-label="Toggle theme"
+          className="flex h-[2.25rem] w-[2.25rem] items-center justify-center rounded-full border-foreground/10 bg-transparent"
+        >
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>
