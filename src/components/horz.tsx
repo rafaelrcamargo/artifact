@@ -63,9 +63,35 @@ const Card = ({ card, size, i }: CardProps) => {
 
   return (
     <div
-      className="group relative h-[450px] overflow-hidden rounded-xl border border-muted bg-background/50 shadow-[0_-20px_80px_-20px_#ffffff1f_inset] backdrop-blur-sm duration-150 hover:shadow-[0_-10px_80px_-10px_#ffffff1f_inset]"
+      className="group relative h-[450px] overflow-hidden rounded-xl border border-muted bg-background/60 shadow-[0_-20px_80px_-20px_#ffffff1f_inset] backdrop-blur-sm duration-150 hover:shadow-[0_-10px_80px_-10px_#ffffff1f_inset]"
       style={{ width: size }}
     >
+      <div>
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full fill-muted-foreground opacity-20 [mask-image:radial-gradient(400px_circle_at_center,white,transparent)] group-hover:opacity-50"
+        >
+          <defs>
+            <pattern
+              id="dots"
+              width="16"
+              height="16"
+              patternUnits="userSpaceOnUse"
+              patternContentUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+            >
+              <circle id="pattern" cx="1" cy="1" r="1"></circle>
+            </pattern>
+          </defs>
+          <rect
+            width="100%"
+            height="100%"
+            strokeWidth="0"
+            fill="url(#dots)"
+          ></rect>
+        </svg>
+      </div>
       <div
         className="absolute -right-24 -top-24 grayscale group-hover:grayscale-0 [&>svg:last-child()]:blur-xl [&>svg]:h-96 [&>svg]:w-96 [&>svg]:opacity-50 [&>svg]:duration-150 [&>svg]:group-hover:opacity-100"
         style={{
