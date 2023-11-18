@@ -5,6 +5,7 @@ import { FC, useEffect, useRef } from "react"
 import createGlobe, { COBEOptions } from "cobe"
 import { useScroll, useSpring } from "react-spring"
 import { useTheme } from "next-themes"
+import { useWindowFactor } from "@/hooks"
 
 const toColor = (rgb: number[], brightness: number = 255) =>
   rgb.map(hue => hue / brightness) as [number, number, number]
@@ -28,6 +29,7 @@ export const Globe: FC<Props> = ({
   const pointerInteractionMovement = useRef<number>(0)
 
   const { scrollYProgress } = useScroll()
+  const factor = useWindowFactor(10)
 
   const [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -50,8 +52,7 @@ export const Globe: FC<Props> = ({
       canvasRef.current && (width = canvasRef.current.offsetWidth)
 
     window.addEventListener("resize", onResize)
-
-    onResize()
+    onResize() // Set initial width
 
     const globe = createGlobe(canvasRef.current!, {
       // Size and resolution
@@ -81,16 +82,19 @@ export const Globe: FC<Props> = ({
         // This prevents rotation while dragging
         if (!pointerInteracting.current) phi += 0.005
 
-        // Set the camera position
-        state.phi = phi + r.get() + scrollYProgress.get() * 10
+        // Fix resolution
         state.height = width * 2
         state.width = width * 2
 
+        // Set the camera position
+        state.phi = phi + r.get() + scrollYProgress.get() * factor
+
+        // Blinking effect on marker
         if (brightness <= 127.5) shouldDim = false
-        else if (brightness >= 306) shouldDim = true
+        else if (brightness >= 382.5) shouldDim = true
 
         if (shouldDim) brightness -= 1
-        else brightness += 0.5
+        else brightness += 1
 
         state.markerColor = toColor(color, brightness)
       },

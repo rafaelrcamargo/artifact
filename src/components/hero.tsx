@@ -6,6 +6,7 @@ import { useScroll, animated } from "react-spring"
 import { useTheme } from "next-themes"
 
 import { ThemedGlobe } from "@/components/globe"
+import { useWindowFactor } from "@/hooks"
 
 export const Hero = () => {
   return (
@@ -45,6 +46,8 @@ const Title = () => {
   const { scrollYProgress } = useScroll()
   const { resolvedTheme } = useTheme()
 
+  const factor = useWindowFactor()
+
   useEffect(() => {
     setTheme(resolvedTheme!)
   }, [resolvedTheme])
@@ -67,7 +70,7 @@ const Title = () => {
                   val -= 0.05
 
                   return `translate3d(0,-${
-                    val * 14 * (word.length * 20) + (i + 1) * 10
+                    val * 50 * (word.length * 5) * factor
                   }px,0)`
                 }
 

@@ -2,21 +2,18 @@
 
 import { useRef } from "react"
 
-import { LazyMotion, domAnimation } from "framer-motion"
+import { Activity, Anchor, AtSign, Coffee, Hash, Shield } from "lucide-react"
 import { m, useTransform, useScroll } from "framer-motion"
+import { LazyMotion, domAnimation } from "framer-motion"
+
 import { Light } from "@/components/light"
-import {
-  Activity,
-  Anchor,
-  AtSign,
-  Box,
-  Coffee,
-  Hash,
-  Shield
-} from "lucide-react"
+import { useDevice } from "@/hooks"
 
 export const Horz = () => {
+  const { isMobile } = useDevice()
   const targetRef = useRef(null)
+
+  const factor = isMobile ? 200 : 400
 
   const { scrollYProgress } = useScroll({
     target: targetRef
@@ -28,16 +25,19 @@ export const Horz = () => {
     <LazyMotion strict features={domAnimation}>
       <Light container={targetRef} />
 
-      <section ref={targetRef} className="relative z-20 h-[600vh] w-screen">
+      <section
+        ref={targetRef}
+        className="relative z-20 h-[400vh] w-screen md:h-[600vh]"
+      >
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <m.div style={{ x }} className="absolute left-0 flex gap-8">
+          <m.div style={{ x }} className="absolute left-32 flex gap-8">
             {cards.map((card, i) => {
               return (
                 <Card
                   i={i}
                   key={i}
                   card={card}
-                  size={Math.floor(Math.random() * 500) + 400}
+                  size={Math.floor(Math.random() * 500) + factor}
                 />
               )
             })}
@@ -110,8 +110,10 @@ const Card = ({ card, size, i }: CardProps) => {
       >
         {card.icon}
       </div>
-      <div className="absolute inset-0 z-10 flex flex-col justify-end gap-2 p-14">
-        <h2 className="text-4xl font-black text-foreground">{card.title}</h2>
+      <div className="absolute inset-0 z-10 flex flex-col justify-end gap-2 p-14 [text-shadow:0_0_8px_hsl(var(--background)_/_80%)]">
+        <h2 className="-mb-1 text-xl font-black text-foreground md:text-4xl">
+          {card.title}
+        </h2>
         <p>{card.description}</p>
         <div className="max-h-[0px] overflow-hidden underline-offset-4 duration-150 hover:underline group-hover:max-h-8">
           Read more →
