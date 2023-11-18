@@ -2,7 +2,6 @@ import Image from "next/image"
 
 import { Hero } from "@/components/hero"
 import { Horz } from "@/components/horz"
-import { Light } from "@/components/light"
 
 const Page = () => (
   <main className="flex min-h-screen flex-col items-center justify-between p-8 md:p-24">

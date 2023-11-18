@@ -14,14 +14,11 @@ const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Toaster
-        closeButton
-        toastOptions={{
-          style: {
-            background: theme === "dark" ? "#333" : "#fff"
-          }
-        }}
-        theme={theme as Theme}
-        duration={3000}
+        richColors // Use rich colors
+        closeButton // Show close button
+        duration={3000} // Duration of the toast
+        theme={theme as Theme} // Use the theme from next-themes
+        toastOptions={{ style: { background: "hsl(var(--background))" } }}
       />
       {children}
     </>

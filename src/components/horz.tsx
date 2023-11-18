@@ -8,6 +8,7 @@ import { LazyMotion, domAnimation } from "framer-motion"
 
 import { Light } from "@/components/light"
 import { useDevice } from "@/hooks"
+import { useTheme } from "next-themes"
 
 export const Horz = () => {
   const { isMobile } = useDevice()
@@ -59,7 +60,12 @@ type CardProps = {
 }
 
 const Card = ({ card, size, i }: CardProps) => {
-  const colors = ["#FF3021", "#FF5721", "#FF7E21", "#FFA421", "#FFBF21"]
+  const { resolvedTheme } = useTheme()
+
+  const colors =
+    resolvedTheme === "dark"
+      ? ["#FF551F", "#FFA31F", "#FE7C1F", "#FF2E1F", "#FFBE1F"]
+      : ["#2EF23D", "#2EF2C2", "#2EF280", "#6EF22E", "#2EE1F2"]
 
   return (
     <div
@@ -148,10 +154,5 @@ const cards = [
     title: "Tell everyone about it",
     description: "Just kidding, we don't have a referral program.",
     icon: <Hash />
-  },
-  {
-    title: "The best of the best",
-    description: "We only hire the best of the best.",
-    icon: <Anchor />
   }
 ]
